@@ -24,7 +24,7 @@ const Payments = () => {
       setStatus({ kind: 'success', text: 'Płatność zaakceptowana' });
       clear();
       setTimeout(() => navigate('/'), 1500);
-    } catch (err) {
+    } catch {
       setStatus({ kind: 'error', text: 'Nie udało się przetworzyć płatności' });
     } finally {
       setSubmitting(false);
@@ -58,9 +58,7 @@ const Payments = () => {
         </button>
       </form>
       {status && (
-        <p role="status" className={status.kind}>
-          {status.text}
-        </p>
+        <output className={status.kind}>{status.text}</output>
       )}
     </section>
   );
